@@ -826,7 +826,7 @@ ul, dl { list-style: none; }
 
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
   width: 100%;
   margin-top: 1rem;
