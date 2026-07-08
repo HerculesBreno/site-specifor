@@ -627,6 +627,7 @@ ul, dl { list-style: none; }
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-card);
+  background: var(--color-bg-dark);
 }
 .img-placeholder {
   aspect-ratio: 4/3;
@@ -645,7 +646,7 @@ ul, dl { list-style: none; }
   display: block;
   width: 100%;
   aspect-ratio: 4/3;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-xl);
 }
 
@@ -941,6 +942,69 @@ ul, dl { list-style: none; }
 .package-card--featured .package-cta { color: var(--color-accent-dark); }
 
 /* ============================================================
+   SEÇÃO 6B — ADD-ONS
+   ============================================================ */
+.addons-section {
+  background: var(--color-bg-light);
+  padding-block: var(--section-py);
+  border-top: 1px solid var(--color-border);
+}
+.addons-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+.addons-inner .section-title { max-width: 32ch; }
+.addons-inner .section-body  { max-width: 52ch; }
+
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+.addon-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: .75rem;
+}
+.addon-subtitle {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+  margin-top: .5rem;
+}
+.addon-versions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.addon-versions li {
+  font-size: var(--text-sm);
+  color: var(--color-ink-secondary);
+  padding-left: 1.25rem;
+  position: relative;
+}
+.addon-versions li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+.addons-cta { margin-top: .5rem; }
+
+/* ============================================================
    SEÇÃO 7 — LOGOS / CONFIANÇA
    ============================================================ */
 .trust-section {
@@ -1177,14 +1241,17 @@ ul, dl { list-style: none; }
 /* ── Stagger — filhos aparecem em cascata ────────────────── */
 .anim-stagger .feature-card,
 .anim-stagger .testimonial-card,
-.anim-stagger .package-card { opacity: 0; }
+.anim-stagger .package-card,
+.anim-stagger .addon-card { opacity: 0; }
 
 .anim-stagger .feature-card:nth-child(1),
 .anim-stagger .testimonial-card:nth-child(1),
-.anim-stagger .package-card:nth-child(1) { transition: opacity 0.35s ease-in 0.10s; }
+.anim-stagger .package-card:nth-child(1),
+.anim-stagger .addon-card:nth-child(1) { transition: opacity 0.35s ease-in 0.10s; }
 .anim-stagger .feature-card:nth-child(2),
 .anim-stagger .testimonial-card:nth-child(2),
-.anim-stagger .package-card:nth-child(2) { transition: opacity 0.35s ease-in 0.20s; }
+.anim-stagger .package-card:nth-child(2),
+.anim-stagger .addon-card:nth-child(2) { transition: opacity 0.35s ease-in 0.20s; }
 .anim-stagger .feature-card:nth-child(3),
 .anim-stagger .testimonial-card:nth-child(3),
 .anim-stagger .package-card:nth-child(3) { transition: opacity 0.35s ease-in 0.30s; }
@@ -1194,7 +1261,8 @@ ul, dl { list-style: none; }
 
 .anim-stagger.build-in .feature-card,
 .anim-stagger.build-in .testimonial-card,
-.anim-stagger.build-in .package-card     { opacity: 1; }
+.anim-stagger.build-in .package-card,
+.anim-stagger.build-in .addon-card       { opacity: 1; }
 
 /* ── Slide-up pesado CTA (Padrão 6, controlado pelo engine) */
 .cta-title,
@@ -1212,7 +1280,8 @@ ul, dl { list-style: none; }
   .cta-title, .cta-body, .cta-section .btn,
   .anim-stagger .feature-card,
   .anim-stagger .testimonial-card,
-  .anim-stagger .package-card {
+  .anim-stagger .package-card,
+  .anim-stagger .addon-card {
     opacity: 1 !important;
     transform: none !important;
     transition-duration: 0s !important;
@@ -1243,6 +1312,7 @@ ul, dl { list-style: none; }
 
   .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
   .packages-grid     { grid-template-columns: repeat(2, 1fr); }
+  .addons-grid       { grid-template-columns: repeat(2, 1fr); }
 
   .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-nav   { grid-template-columns: repeat(3, 1fr); }
@@ -1283,6 +1353,9 @@ ul, dl { list-style: none; }
 
   .packages-grid  { grid-template-columns: 1fr; }
   .packages-inner { align-items: flex-start; text-align: left; }
+
+  .addons-grid  { grid-template-columns: 1fr; }
+  .addons-inner { align-items: flex-start; text-align: left; }
 
   .footer-nav { grid-template-columns: repeat(2, 1fr); }
   .footer-bottom-inner { flex-direction: column; text-align: center; gap: .5rem; }
