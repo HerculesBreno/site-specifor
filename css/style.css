@@ -614,7 +614,7 @@ ul, dl { list-style: none; }
 }
 .split-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: clamp(3rem, 8vw, 7rem);
   align-items: center;
 }
@@ -627,7 +627,6 @@ ul, dl { list-style: none; }
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  background: var(--color-bg-dark);
 }
 .img-placeholder {
   aspect-ratio: 4/3;
@@ -645,8 +644,8 @@ ul, dl { list-style: none; }
 .split-video {
   display: block;
   width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: contain;
+  aspect-ratio: 960/424;
+  object-fit: cover;
   border-radius: var(--radius-xl);
 }
 
@@ -962,22 +961,24 @@ ul, dl { list-style: none; }
 .addons-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  width: 100%;
-  margin-top: 1rem;
-}
-.addon-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  padding: 2.5rem 2rem;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 1rem;
+}
+.addon-card {
+  background: transparent;
+  padding: 2.5rem 1.75rem 2rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   gap: .75rem;
 }
+.addon-card:first-child { border-right: 1px solid var(--color-border); }
 .addon-subtitle {
   font-size: var(--text-sm);
   font-weight: var(--fw-semibold);
@@ -989,6 +990,7 @@ ul, dl { list-style: none; }
   display: flex;
   flex-direction: column;
   gap: .5rem;
+  text-align: left;
 }
 .addon-versions li {
   font-size: var(--text-sm);
@@ -1356,6 +1358,8 @@ ul, dl { list-style: none; }
 
   .addons-grid  { grid-template-columns: 1fr; }
   .addons-inner { align-items: flex-start; text-align: left; }
+  .addon-card { border-right: none; border-bottom: 1px solid var(--color-border); }
+  .addon-card:last-child { border-bottom: none; }
 
   .footer-nav { grid-template-columns: repeat(2, 1fr); }
   .footer-bottom-inner { flex-direction: column; text-align: center; gap: .5rem; }
